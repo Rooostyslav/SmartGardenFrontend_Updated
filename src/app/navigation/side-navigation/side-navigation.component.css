@@ -1,0 +1,45 @@
+mat-toolbar {
+    width: 100vw;
+}
+
+mat-sidenav-container {
+    height: 100vh;
+    width: 100vw;
+}
+
+mat-sidenav {
+    background-color: #cbcdce3b;
+    width: 20vh;
+    height: 100vh;
+}
+
+mat-sidenav-content {
+    background-color: whitesmoke;
+}
+
+.full-width {
+    width: 100%;
+}
+
+mat-sidenav {
+    padding-top: 10px;
+}
+
+mat-list-item button {
+    width: 100%;
+    text-align: start;
+    padding: 0 0 0 15%;
+    margin-top: 5px;
+}
+
+.btn-beige {
+    color: #7e7e2d;
+}
+
+.btn-brown {
+    color: #964B00;
+}
+
+.btn-success {
+    color: green;
+}

@@ -1,0 +1,40 @@
+<mat-toolbar color="primary">
+	<button mat-icon-button (click)="isExpanded=!isExpanded">
+        <mat-icon>menu</mat-icon>
+    </button>
+	<h1 class="example-app-name">Smart Garden</h1>
+</mat-toolbar>
+<mat-sidenav-container>
+    <mat-sidenav #sidenav mode="side" opened>
+       <mat-list-item>
+            <button class="btn-beige" mat-button [routerLink]="['/users']">
+                <mat-icon mat-list-icon>people</mat-icon>
+                <span class="full-width">Users</span>
+            </button>
+            <button class="btn-brown" mat-button  [routerLink]="['/gardens']">
+                <mat-icon mat-list-icon>filter_hdr</mat-icon>
+                <span class="full-width">Gardens</span>
+            </button>
+            <button class="btn-success" mat-button [routerLink]="['/plants']">
+                <mat-icon mat-list-icon>local_florist</mat-icon>
+                <span class="full-width">Plants</span>
+            </button>
+            <button mat-button color="accent" [routerLink]="['/actions']">
+                <mat-icon mat-list-icon>flash_on</mat-icon>
+                <span class="full-width">Actions</span>
+            </button>
+            <button mat-button [routerLink]="['/resources']">
+                <mat-icon mat-list-icon>grain</mat-icon>
+                <span class="full-width">Resources</span>
+            </button>
+            <button mat-button color="warn" [routerLink]="['/devices']">
+                <mat-icon mat-list-icon>android</mat-icon>
+                <span class="full-width">Devices</span>
+            </button>
+       </mat-list-item>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+        <ng-content></ng-content>
+    </mat-sidenav-content>
+</mat-sidenav-container>

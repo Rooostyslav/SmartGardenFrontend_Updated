@@ -1,0 +1,45 @@
+<app-side-navigation>
+    <form #form="ngForm" class="form" (ngSubmit)="onSubmit()">
+        <mat-label class="create-label">Create new user</mat-label>
+        <br>
+        <mat-form-field appearance="fill">
+            <mat-label>Enter first name</mat-label>
+            <input matInput type="text" name="firstName" [(ngModel)]="user.firstName">
+            <mat-hint *ngIf="userErrors.FirstName[0] != undefined" align="end">{{getErrorMessageFirstName()}}</mat-hint>
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="fill">
+            <mat-label>Enter second name</mat-label>
+            <input matInput type="text" name="secondName" [(ngModel)]="user.secondName">
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="fill">
+            <mat-label>Enter email</mat-label>
+            <input matInput type="text" name="email" [(ngModel)]="user.email" placeholder="name@example.com" [matAutocomplete]="auto">
+            <mat-error *ngIf="user.email">{{getErrorMessage()}}</mat-error>
+            <mat-autocomplete #auto="matAutocomplete">
+                <mat-option [value]="user.email + '@gmail.com'">{{user.email + '@gmail.com'}}</mat-option>
+                <mat-option [value]="user.email + '@mail.com'">{{user.email + '@mail.com'}}</mat-option>
+                <mat-option [value]="user.email + '@yahoo.com'">{{user.email + '@yahoo.com'}}</mat-option>
+            </mat-autocomplete>
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="fill">
+            <mat-label>Enter password</mat-label>
+            <input matInput [type]="hidePassword ? 'password' : 'text'" name="password" [(ngModel)]="user.password">
+            <button mat-icon-button matSuffix type="button" (click)="hidePassword=!hidePassword" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidePassword">
+                <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="fill">
+            <mat-label>Role</mat-label>
+            <mat-select name="role" [(ngModel)]="user.role">
+                <mat-option value="0">User</mat-option>
+                <mat-option value="1">Admin</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <br>
+        <button class="submit-button" mat-raised-button color="primary" type="submit" [disabled]="!form.valid">Save</button>
+    </form>
+</app-side-navigation>
